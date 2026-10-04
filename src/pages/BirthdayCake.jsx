@@ -231,7 +231,7 @@ const BlueBirthdayCake = () => {
             <span className="text-zinc-100">
               Make a wish,{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-              Name
+                Mohamed
               </span>{' '}
               👑
             </span>
@@ -264,23 +264,23 @@ const BlueBirthdayCake = () => {
           </span>
         </motion.button>
 
-        {/* Secret Letter Button */}
+        {/* Invitation Button */}
         <AnimatePresence>
           {!isLit && (
             <motion.button
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
-              onClick={() => navigate('/letter')}
+              onClick={() => navigate('/invitation')}
               className="relative mt-6 cursor-pointer md:mt-7 group flex flex-col items-center gap-1"
             >
               <span className="absolute inset-0 rounded-full bg-blue-500 blur-md opacity-0 group-hover:opacity-20 transition-opacity duration-500" />
               <span className="relative text-blue-400 group-hover:text-blue-300 text-xs md:text-sm font-medium tracking-widest uppercase transition-colors duration-300">
-                You have a secret letter
+                You have a special invitation 💌
               </span>
               <span className="relative flex items-center gap-2 text-zinc-400 group-hover:text-zinc-300 text-[10px] md:text-xs transition-colors">
                 <span className="h-px w-6 md:w-8 bg-gradient-to-r from-transparent to-blue-500/50" />
-                Click to read ✉️
+                Click to open invitation 🎟️
                 <span className="h-px w-6 md:w-8 bg-gradient-to-l from-transparent to-blue-500/50" />
               </span>
             </motion.button>

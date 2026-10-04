@@ -126,11 +126,11 @@ const Letter = () => {
             <div className="absolute -inset-[1px] rounded-2xl bg-gradient-to-br from-blue-500/30 via-cyan-500/10 to-indigo-500/30 blur-sm" />
 
             <div className="relative bg-zinc-900 border border-zinc-700/80 rounded-2xl flex flex-col h-full max-h-[90vh] overflow-hidden shadow-2xl shadow-black/70">
-              
+
               <div className="w-full h-[3px] bg-gradient-to-r from-cyan-500 via-blue-400 to-indigo-500 flex-shrink-0" />
 
               {/* تم تعديل الاتجاه هنا ليكون LTR */}
-              <div 
+              <div
                 dir="ltr"
                 className="px-5 sm:px-8 md:px-14 py-8 md:py-14 overflow-y-auto overflow-x-hidden text-left
                 [&::-webkit-scrollbar]:w-2
@@ -147,19 +147,21 @@ const Letter = () => {
                 </div>
 
                 {/* العنوان محاذى لليسار */}
+                {/* Title */}
                 <h3 className="font-serif italic text-xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 mb-6 md:mb-8 tracking-tight text-left">
-                  To my favorite person,
+                  To the love of my life,
                 </h3>
 
-                {/* محتوى الرسالة محاذى لليسار */}
+                {/* Message Content */}
                 <div className="space-y-4 md:space-y-6 text-zinc-300 text-sm md:text-lg leading-[1.8] md:leading-[2] font-sans text-left">
-                <p>
-                    I wanted to take a moment on your special day to tell you how much you
-                    mean to me. You bring so much joy and light into my life every single day.
+                  <p>
+                    Happy birthday to the best man in my whole world! I love you more than words can say. Even though we’ve only been together for a few months, you’ve already made my life so much brighter and happier. I’m so lucky to have you. Love you, habibi!
                   </p>
                   <p>
-                    May this year be filled with laughter, love, and all the magic you deserve.
-                    Always remember how special and loved you are.
+                    I am always proud of you, and I see you as the best person in the world.
+                  </p>
+                  <p>
+                    I hope this year is full of success for you.
                   </p>
                 </div>
 
@@ -175,7 +177,7 @@ const Letter = () => {
                     With all my love,
                   </span>
                   <span className="font-serif italic text-2xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-                  Youssef ✨
+                    Rahma ✨
                   </span>
                 </div>
 

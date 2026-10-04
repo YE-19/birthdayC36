@@ -148,12 +148,12 @@ const Letter = () => {
 
                 {/* العنوان محاذى لليسار */}
                 {/* Title */}
-                <h3 className="font-serif italic text-xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 mb-6 md:mb-8 tracking-tight text-left">
+                <h3 className="font-serif italic text-2xl sm:text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 mb-6 md:mb-8 tracking-tight text-left">
                   To the love of my life,
                 </h3>
 
                 {/* Message Content */}
-                <div className="space-y-4 md:space-y-6 text-zinc-300 text-sm md:text-lg leading-[1.8] md:leading-[2] font-sans text-left">
+                <div className="space-y-4 md:space-y-6 text-zinc-200 text-base sm:text-lg md:text-xl leading-[1.8] md:leading-[2] font-sans text-left">
                   <p>
                     Happy birthday to the best man in my whole world! I love you more than words can say. Even though we’ve only been together for a few months, you’ve already made my life so much brighter and happier. I’m so lucky to have you. Love you, habibi!
                   </p>

@@ -225,7 +225,7 @@ const BlueBirthdayCake = () => {
         <motion.h2
           animate={{ y: [0, -5, 0] }}
           transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
-          className="text-xl md:text-3xl font-serif italic mb-6 md:mb-8 drop-shadow-sm"
+          className="text-2xl sm:text-3xl md:text-4xl font-serif italic mb-6 md:mb-8 drop-shadow-md"
         >
           {isLit ? (
             <span className="text-zinc-100">

@@ -2,33 +2,22 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import photo1 from '../assets/photo1.jpg';
-import photo2 from '../assets/photo2.jpeg';
 
 const Memories = () => {
   const [selected, setSelected] = useState(null);
 
-  const photos = [
-    {
-      id: 1,
-      url: photo1,
-      message:
-        '',
-      date: '',
-    },
-    {
-      id: 2,
-      url: photo2,
-      message:
-        "",
-      date: '',
-    },
-  ];
+  const photo = {
+    id: 1,
+    url: photo1,
+    message: 'i love you',
+    date: '',
+  };
 
   const navigate = useNavigate();
 
   return (
     // منع السكرول نهائياً وتثبيت الشاشة
-    <div className="fixed inset-0 h-[100dvh] w-full flex flex-col items-center justify-center bg-zinc-950 overflow-hidden touch-none">
+    <div className="fixed inset-0 h-[100dvh] w-full flex flex-col items-center justify-center bg-zinc-950 overflow-hidden touch-none p-4">
       {/* ── Ambient Glow Orbs ── */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-[-12%] left-[-8%] w-72 h-72 md:w-96 md:h-96 bg-blue-600 rounded-full blur-[70px] md:blur-[150px] opacity-15" />
@@ -84,77 +73,68 @@ const Memories = () => {
         initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="flex flex-col items-center gap-1 mb-5 md:mb-7 z-10 mt-6 md:mt-0"
+        className="flex flex-col items-center gap-1 mb-4 sm:mb-5 md:mb-6 z-10 mt-4 md:mt-0"
       >
         <p className="text-blue-400 text-[10px] md:text-xs font-semibold uppercase tracking-[0.35em]">
-          ✦ Our Gallery of Happiness ✦
+          ✦ Captured Moment ✦
         </p>
-        <h2 className="font-serif italic text-2xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400">
-          Captured Moments
+        <h2 className="font-serif italic text-2xl sm:text-3xl md:text-4xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400">
+          Special Memory
         </h2>
         <div className="w-12 md:w-16 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent mt-1" />
-        <p className="text-zinc-500 text-[10px] md:text-xs tracking-widest mt-1">
-          tap a photo to reveal its story
-        </p>
       </motion.div>
 
-      {/* ── 2 Photo Grid ── */}
-      <div className="grid grid-cols-2 gap-4 md:gap-6 z-10 px-4 w-full max-w-[340px] sm:max-w-md md:max-w-lg">
-        {photos.map((photo, index) => (
-          <motion.div
-            key={photo.id}
-            initial={{ opacity: 0, scale: 0.85, y: 15 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{
-              duration: 0.7,
-              delay: index * 0.2,
-              type: 'spring',
-              stiffness: 90,
-            }}
-            whileHover={{ scale: 1.05, zIndex: 50 }}
-            onClick={() => setSelected(photo)}
-            className="relative cursor-pointer group"
-          >
-            <div className="absolute -inset-[2px] md:-inset-[3px] rounded-xl bg-gradient-to-br from-blue-500/0 via-cyan-500/0 to-indigo-500/0 group-hover:from-blue-500/50 group-hover:via-cyan-400/30 group-hover:to-indigo-500/50 blur-sm transition-all duration-500" />
-
-            <div className="relative bg-zinc-900 p-2 pb-6 md:p-3 md:pb-8 border border-zinc-700 group-hover:border-blue-500/60 transition-colors duration-400 rounded-xl shadow-2xl shadow-black/60">
-              <div className="absolute -top-2 md:-top-3 left-1/2 -translate-x-1/2 w-8 h-4 md:w-12 md:h-6 bg-zinc-700/60 border border-zinc-600/40 group-hover:bg-blue-500/20 group-hover:border-blue-400/30 transition-all duration-400 rounded-sm z-10" />
-
-              <div className="w-full h-36 sm:h-44 md:h-56 overflow-hidden rounded-lg bg-zinc-800 relative">
-                <div className="absolute inset-0 z-10 bg-gradient-to-tr from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/10 group-hover:to-cyan-500/10 transition-all duration-500" />
-                <img
-                  src={photo.url}
-                  alt={`Memory ${photo.id}`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-              </div>
-
-              <div className="absolute bottom-2 left-3 right-3 flex items-center justify-center gap-1.5">
-                <div className="h-px flex-1 bg-zinc-700 group-hover:bg-blue-500/40 transition-colors duration-400" />
-                <span className="text-zinc-600 group-hover:text-blue-400 text-[10px] md:text-xs transition-colors duration-400">
-                  ✦
-                </span>
-                <div className="h-px flex-1 bg-zinc-700 group-hover:bg-blue-500/40 transition-colors duration-400" />
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* ── Closing Quote ── */}
+      {/* ── Single Photo Showcase ── */}
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.8, duration: 0.8 }}
-        className="flex flex-col items-center gap-1.5 md:gap-2 mt-5 md:mt-7 z-10"
+        initial={{ opacity: 0, scale: 0.85, y: 15 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{
+          duration: 0.7,
+          type: 'spring',
+          stiffness: 90,
+        }}
+        whileHover={{ scale: 1.03 }}
+        onClick={() => setSelected(photo)}
+        className="relative cursor-pointer group z-10 w-full max-w-[260px] sm:max-w-[290px] md:max-w-[330px]"
       >
-        <div className="flex items-center gap-3">
+        <div className="absolute -inset-[2px] md:-inset-[3px] rounded-2xl bg-gradient-to-br from-blue-500/20 via-cyan-400/20 to-indigo-500/20 group-hover:from-blue-500/50 group-hover:via-cyan-400/40 group-hover:to-indigo-500/50 blur-md transition-all duration-500" />
+
+        <div className="relative bg-zinc-900 p-2.5 pb-4 sm:p-3 sm:pb-5 border border-zinc-700 group-hover:border-blue-500/60 transition-colors duration-400 rounded-2xl shadow-2xl shadow-black/70 flex flex-col items-center">
+          <div className="absolute -top-2 md:-top-3 left-1/2 -translate-x-1/2 w-10 h-4 md:w-12 md:h-5 bg-zinc-700/60 border border-zinc-600/40 group-hover:bg-blue-500/20 group-hover:border-blue-400/30 transition-all duration-400 rounded-sm z-10" />
+
+          <div className="w-full h-44 sm:h-52 md:h-60 overflow-hidden rounded-xl bg-zinc-950 relative flex items-center justify-center">
+            <div className="absolute inset-0 z-10 bg-gradient-to-tr from-blue-500/0 to-cyan-500/0 group-hover:from-blue-500/10 group-hover:to-cyan-500/10 transition-all duration-500" />
+            <img
+              src={photo.url}
+              alt="Memory 1"
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+
+          <div className="w-full mt-3 flex items-center justify-center gap-1.5 px-2">
+            <div className="h-px flex-1 bg-zinc-700 group-hover:bg-blue-500/40 transition-colors duration-400" />
+            <span className="text-zinc-600 group-hover:text-blue-400 text-[10px] md:text-xs transition-colors duration-400">
+              ✦
+            </span>
+            <div className="h-px flex-1 bg-zinc-700 group-hover:bg-blue-500/40 transition-colors duration-400" />
+          </div>
+        </div>
+      </motion.div>
+
+      {/* ── Under Photo Text: "i love you" ── */}
+      <motion.div
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.8 }}
+        className="flex flex-col items-center gap-1 mt-4 sm:mt-5 z-10"
+      >
+        <div className="flex items-center gap-2.5">
           <div className="h-px w-8 md:w-10 bg-gradient-to-r from-transparent to-blue-500/50" />
-          <span className="text-blue-500/50 text-[10px] md:text-xs">✦</span>
+          <span className="text-blue-400 text-[11px] md:text-xs">💙</span>
           <div className="h-px w-8 md:w-10 bg-gradient-to-l from-transparent to-blue-500/50" />
         </div>
-        <p className="font-serif italic text-sm md:text-lg text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400">
-          "One of the best memories we've ever shared..."
+        <p className="font-serif italic text-xl sm:text-2xl md:text-3xl text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 font-medium tracking-wide">
+          i love you
         </p>
       </motion.div>
 
@@ -162,12 +142,12 @@ const Memories = () => {
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.0 }}
-        className="pt-4 md:pt-6 flex justify-center pb-2"
+        transition={{ delay: 0.7 }}
+        className="pt-4 sm:pt-5 md:pt-6 flex justify-center pb-2 z-10"
       >
         <button
           onClick={() => navigate('/vid')}
-          className="relative group cursor-pointer inline-flex items-center gap-2 md:gap-3 bg-blue-500 hover:bg-blue-400 text-white px-8 py-3 md:px-10 md:py-4 rounded-full font-semibold text-sm md:text-base tracking-wide transition-all duration-300 shadow-lg shadow-blue-900/50 overflow-hidden"
+          className="relative group cursor-pointer inline-flex items-center gap-2 md:gap-3 bg-blue-500 hover:bg-blue-400 text-white px-7 py-2.5 sm:px-8 sm:py-3 md:px-10 md:py-3.5 rounded-full font-semibold text-xs sm:text-sm md:text-base tracking-wide transition-all duration-300 shadow-lg shadow-blue-900/50 overflow-hidden"
         >
           <span className="absolute inset-0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12" />
           <span className="relative">See your last surprise</span>
@@ -215,17 +195,9 @@ const Memories = () => {
                 </div>
 
                 <div className="px-5 md:px-7 pb-6 pt-3 flex-1 flex flex-col items-center bg-zinc-900">
-                  {selected.date && (
-                    <p className="text-blue-400 text-[10px] md:text-sm uppercase tracking-[0.3em] mb-2 text-center font-semibold">
-                      {selected.date}
-                    </p>
-                  )}
-
-                  {selected.message && (
-                    <p className="font-serif italic text-zinc-300 text-xs sm:text-sm md:text-base leading-relaxed text-center px-2">
-                      "{selected.message}"
-                    </p>
-                  )}
+                  <p className="font-serif italic text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400 text-base sm:text-lg md:text-xl leading-relaxed text-center px-2 font-medium">
+                    "i love you"
+                  </p>
 
                   <div className="mt-4 md:mt-5 flex justify-center w-full">
                     <button
